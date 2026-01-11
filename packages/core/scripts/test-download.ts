@@ -14,7 +14,7 @@
  * - 将结果保存到当前目录的 markdown 文件中
  */
 
-import transformHtml2Markdown from '../src/index.js'
+import transformHtml2Markdown from '../dist/index.js'
 import { writeFileSync } from 'fs'
 import { resolve } from 'path'
 
