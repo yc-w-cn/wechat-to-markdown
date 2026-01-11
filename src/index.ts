@@ -4,10 +4,10 @@
  * Fork 维护者: yc-w-cn
  */
 import axios from 'axios'
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 import { errObj } from './error'
 import { TurnDownResult, Status } from './type'
-import { turndownService } from './turndownCode'
+import { markdownService } from './htmlToMarkdown'
 
 const getError = (code: number) => {
   return {
@@ -22,7 +22,7 @@ export { TurnDownResult, Status }
 export default async function transformHtml2Markdown(
   url: string
 ): Promise<TurnDownResult> {
-  let json: TurnDownResult = await axios
+  const json: TurnDownResult = await axios
     .request({
       url,
       method: 'get',
@@ -43,7 +43,7 @@ export default async function transformHtml2Markdown(
       const html = $('#js_content').html()
 
       if (html && html.length > 0) {
-        let res = turndownService.turndown(html)
+        let res = markdownService.turndown(html)
 
         res = `## ${title} \n \n` + `## 作者 ${author} \n \n` + res
 

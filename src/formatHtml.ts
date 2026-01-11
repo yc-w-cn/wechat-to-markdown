@@ -3,7 +3,7 @@
  * 原作者: Ryan-liu
  * Fork 维护者: yc-w-cn
  */
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 
 /**
  * 微信不同代码风格
@@ -49,7 +49,7 @@ export function formatCode(htmlStr: string) {
 export function figure2markdown(figureHTML: string) {
   const imgRegex = /<img.*?data-src=['"](.*?)['"]/
 
-  const descRegex = /\<figcaption .*?>(.+)<\/figcaption>/
+  const descRegex = /<figcaption .*?>(.+)<\/figcaption>/
 
   const imgArr = figureHTML.match(imgRegex)
 

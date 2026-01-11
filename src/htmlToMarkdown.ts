@@ -7,18 +7,15 @@
  *  html 转换 markdown 格式
  */
 import turnDownService from 'turndown'
-import { gfm } from 'turndown-plugin-gfm'
 import { formatCode, figure2markdown } from './formatHtml'
 
-const turndownService = new turnDownService({
+const markdownService = new turnDownService({
   codeBlockStyle: 'fenced',
   hr: '',
 })
 
-turndownService.use(gfm)
-
 // 自定义配置
-turndownService
+markdownService
   .addRule('pre2Code', {
     filter: ['pre'],
     replacement(content, node: any) {
@@ -56,5 +53,33 @@ turndownService
       return res || ''
     },
   })
+  .addRule('strikethrough', {
+    filter: ['s', 'del', 'strike'],
+    replacement(content) {
+      return `~~${content}~~`
+    },
+  })
+  .addRule('table', {
+    filter: ['table'],
+    replacement(content, node: any) {
+      const rows = Array.from(node.querySelectorAll('tr'))
+      if (rows.length === 0) return ''
 
-export { turndownService }
+      let markdown = '\n'
+
+      rows.forEach((row) => {
+        const cells = Array.from(row.querySelectorAll('td, th'))
+        markdown += '| ' + cells.map((cell) => cell.textContent?.trim() || '').join(' | ') + ' |\n'
+      })
+
+      // 添加表头分隔线
+      const headerCells = Array.from(rows[0].querySelectorAll('th'))
+      if (headerCells.length > 0) {
+        markdown += '| ' + headerCells.map(() => '---').join(' | ') + ' |\n'
+      }
+
+      return markdown
+    },
+  })
+
+export { markdownService }
