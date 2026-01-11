@@ -4,7 +4,7 @@
  * Fork 维护者: yc-w-cn
  */
 export const errObj: {
-    [key: number]: string
+  [key: number]: string
 } = {
-    '400': '内容解析失败',
+  '400': '内容解析失败',
 }

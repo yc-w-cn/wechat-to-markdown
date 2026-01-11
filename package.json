@@ -23,28 +23,28 @@
   "type": "module",
   "license": "MIT",
   "devDependencies": {
-    "@ryan-liu/eslint-config-jsx-config": "^1.0.2",
-    "@types/fs-extra": "^9.0.13",
-    "@types/turndown": "^5.0.1",
-    "cross-spawn": "^7.0.3",
-    "eslint": "^7.32.0",
-    "husky": "^7.0.2",
-    "inquirer": "^8.2.0",
-    "lint-staged": "^11.1.2",
-    "prettier": "^2.4.1",
-    "tsup": "^5.4.0",
-    "typescript": "^4.4.3"
+    "@eslint/js": "^9.39.2",
+    "@types/fs-extra": "^11.0.4",
+    "@types/turndown": "^5.0.6",
+    "cross-spawn": "^7.0.6",
+    "eslint": "^9.39.2",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "inquirer": "^13.1.0",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.52.0"
   },
   "scripts": {
-    "dev": "yarn build --watch",
+    "dev": "pnpm build --watch",
     "build": "tsup src/index.ts --dts --format cjs,esm",
     "lint": "lint-staged",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "prepare": "husky",
     "pub": "node tools/publish.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{ts,js}": [
@@ -63,9 +63,10 @@
     ]
   },
   "dependencies": {
-    "axios": "^0.22.0",
-    "cheerio": "^1.0.0-rc.10",
-    "turndown": "^7.1.1",
+    "axios": "^1.13.2",
+    "cheerio": "^1.1.2",
+    "turndown": "^7.2.2",
     "turndown-plugin-gfm": "^1.0.2"
-  }
+  },
+  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48"
 }

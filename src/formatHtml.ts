@@ -15,29 +15,29 @@ import cheerio from 'cheerio'
  */
 
 export function formatCode(htmlStr: string) {
-    let code = htmlStr
+  let code = htmlStr
 
-    code = code.replace(/<br>/gi, '\n')
+  code = code.replace(/<br>/gi, '\n')
 
-    code = code.replace(/&nbsp;/gi, ' ')
+  code = code.replace(/&nbsp;/gi, ' ')
 
-    code = code.replace(/&lt;/gi, '<')
+  code = code.replace(/&lt;/gi, '<')
 
-    code = code.replace(/&gt;/gi, '>')
+  code = code.replace(/&gt;/gi, '>')
 
-    code = code.replace(/&amp;/gi, '&')
+  code = code.replace(/&amp;/gi, '&')
 
-    code = code.replace(/&quot;/gi, '"')
+  code = code.replace(/&quot;/gi, '"')
 
-    code = code.replace(/&apos;/gi, '‘')
+  code = code.replace(/&apos;/gi, '‘')
 
-    code = code.replace(/&times;/gi, '*')
+  code = code.replace(/&times;/gi, '*')
 
-    code = code.replace(/&divide;/gi, '%')
+  code = code.replace(/&divide;/gi, '%')
 
-    const $ = cheerio.load(code)
+  const $ = cheerio.load(code)
 
-    return $.text()
+  return $.text()
 }
 
 /**
@@ -47,30 +47,30 @@ export function formatCode(htmlStr: string) {
  * @returns
  */
 export function figure2markdown(figureHTML: string) {
-    const imgRegex = /<img.*?data-src=['"](.*?)['"]/
+  const imgRegex = /<img.*?data-src=['"](.*?)['"]/
 
-    const descRegex = /\<figcaption .*?>(.+)<\/figcaption>/
+  const descRegex = /\<figcaption .*?>(.+)<\/figcaption>/
 
-    const imgArr = figureHTML.match(imgRegex)
+  const imgArr = figureHTML.match(imgRegex)
 
-    const descArr = figureHTML.match(descRegex)
+  const descArr = figureHTML.match(descRegex)
 
-    let imgUrl = ''
+  let imgUrl = ''
 
-    let desc = ''
+  let desc = ''
 
-    if (Array.isArray(imgArr)) {
-        imgUrl = imgArr[1]
-    }
+  if (Array.isArray(imgArr)) {
+    imgUrl = imgArr[1]
+  }
 
-    if (Array.isArray(descArr)) {
-        desc = descArr[1]
-    }
+  if (Array.isArray(descArr)) {
+    desc = descArr[1]
+  }
 
-    // img 可能没有图片说明
-    if (imgUrl) {
-        return `\n\n ![${desc}](${imgUrl}) \n\n`
-    }
+  // img 可能没有图片说明
+  if (imgUrl) {
+    return `\n\n ![${desc}](${imgUrl}) \n\n`
+  }
 
-    return
+  return
 }
