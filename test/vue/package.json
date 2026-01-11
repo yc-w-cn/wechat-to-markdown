@@ -2,7 +2,7 @@
     "name": "vue",
     "version": "1.0.0",
     "description": "",
-    "author": "Ryan-liu",
+    "author": "yc-w-cn",
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc --noEmit && vite build",

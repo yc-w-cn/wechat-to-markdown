@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@ryan-liu/wechat-to-markdown": "^1.1.0",
+    "@yc-w-cn/wechat-to-markdown": "^1.1.0",
     "fs-extra": "^10.0.0"
   },
   "scripts": {

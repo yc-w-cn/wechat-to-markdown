@@ -1,5 +1,7 @@
 ## 说明
 
+> 本项目 Fork 自 [ryan-liu/wechat-to-markdown](https://github.com/ryan-liu/wechat-to-markdown)
+
 输入微信公众号地址，将其转换为 markdown 格式
 
 [English](README.md) | 简体中文
@@ -41,7 +43,7 @@ setTimeout(async () => {
 **index.ts**
 
 ```javascript
-import transformHtml2Markdown from '@ryan-liu/wechat-to-markdown'
+import transformHtml2Markdown from '@yc-w-cn/wechat-to-markdown'
 
 setup() {
     const getData = async () => {

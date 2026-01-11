@@ -1,4 +1,9 @@
 /**
+ * Forked from @ryan-liu/wechat-to-markdown
+ * 原作者: Ryan-liu
+ * Fork 维护者: yc-w-cn
+ */
+/**
  *  html 转换 markdown 格式
  */
 import turnDownService from 'turndown'

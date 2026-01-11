@@ -1,8 +1,15 @@
 {
-  "name": "@ryan-liu/wechat-to-markdown",
+  "name": "@yc-w-cn/wechat-to-markdown",
   "version": "1.2.2",
   "description": "解析微信文章 URL 为 markdown",
-  "author": "Ryan-liu",
+  "author": "yc-w-cn",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryan-liu/wechat-to-markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryan-liu/wechat-to-markdown/issues"
+  },
   "keywords": [
     "wechat to markdown",
     "markdown"

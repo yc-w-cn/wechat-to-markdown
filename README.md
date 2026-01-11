@@ -1,5 +1,7 @@
 ## description
 
+> This project is forked from [ryan-liu/wechat-to-markdown](https://github.com/ryan-liu/wechat-to-markdown)
+
 Enter the WeChat public address to convert it to markdown format
 
 English | [简体中文](README.zh-CN.md)
@@ -25,7 +27,7 @@ interface TurnDownResult {
 ## CommonJs
 
 ```javascript
-const transformHtml2Markdown = require('@ryan-liu/wechat-to-markdown').default
+const transformHtml2Markdown = require('@yc-w-cn/wechat-to-markdown').default
 
 setTimeout(async () => {
     const articleData = await transformHtml2Markdown('https://mp.weixin.qq.com/s/9d5DWg7YdMHPvVl-2KLH2w')
@@ -41,7 +43,7 @@ setTimeout(async () => {
 ## vue3
 **index.ts**
 ```javascript
-import transformHtml2Markdown from '@ryan-liu/wechat-to-markdown'
+import transformHtml2Markdown from '@yc-w-cn/wechat-to-markdown'
 
 setup() {
     const getData = async () => {
