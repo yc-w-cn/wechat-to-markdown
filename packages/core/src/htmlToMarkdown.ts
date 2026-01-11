@@ -67,13 +67,13 @@ markdownService
 
       let markdown = '\n'
 
-      rows.forEach((row) => {
+      rows.forEach((row: any) => {
         const cells = Array.from(row.querySelectorAll('td, th'))
-        markdown += '| ' + cells.map((cell) => cell.textContent?.trim() || '').join(' | ') + ' |\n'
+        markdown += '| ' + cells.map((cell: any) => cell.textContent?.trim() || '').join(' | ') + ' |\n'
       })
 
       // 添加表头分隔线
-      const headerCells = Array.from(rows[0].querySelectorAll('th'))
+      const headerCells = Array.from((rows[0] as any).querySelectorAll('th'))
       if (headerCells.length > 0) {
         markdown += '| ' + headerCells.map(() => '---').join(' | ') + ' |\n'
       }
