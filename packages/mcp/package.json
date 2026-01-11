@@ -1,0 +1,36 @@
+{
+  "name": "@yc-w-cn/wechat-to-markdown-mcp",
+  "version": "1.0.0",
+  "description": "微信文章转 Markdown MCP 服务",
+  "author": "yc-w-cn",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "wechat-to-markdown-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "@yc-w-cn/wechat-to-markdown-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  },
+  "tsup": {
+    "target": "node18",
+    "format": "esm",
+    "clean": true,
+    "sourcemap": true,
+    "shims": true
+  }
+}

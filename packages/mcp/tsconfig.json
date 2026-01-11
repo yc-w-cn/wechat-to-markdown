@@ -8,7 +8,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist"
   },
-  "exclude": ["node_modules", "dist", "packages/*/dist"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
